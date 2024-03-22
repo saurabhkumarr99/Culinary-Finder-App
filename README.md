@@ -69,23 +69,7 @@ Follow these steps to run the Blog App locally:
 
  - `Start Project`
    ```bash
-      npm start
-   ``` 
-
- - `Test Project`
-   ```bash
-      npm test
-   ``` 
-
- - `Test Coverage`
-   ```bash
-      npm run coverage
-   ``` 
-
-- `Selenium Testing`
-
-   ```bash
-     node ./src/TestFilesSKR/SeleniumTestSKR/LoginSKRTest 
+   npx expo start
    ``` 
 
 
