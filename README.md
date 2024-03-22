@@ -18,7 +18,7 @@ Welcome to Recipe Finder! This project is a responsive web and mobile applicatio
 - Live Expo Go QR code: Scan the following QR code with an Android device to open it in Expo Go.
 
 <p align="center">
-  <img src="./ScreenShots/StockMarketQR.png" alt="Screenshot 1" width="300" />
+  <img src="./ScreenShots/RecRadQR.png" alt="Screenshot 1" width="300" />
 </p>
 
 ## Table of Contents
