@@ -1,7 +1,21 @@
+import React from 'react';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Button } from 'react-native';
+import HomeSKR from './HomeSKR';
+import ContactUsSKR from './ContactUsSKR';
+import LoginSKR from './LoginSKR';
+import AboutUsSKR from './AboutUsSKR';
+import RecipeDetailPageSKR from './RecipeDetailPageSKR';
+import RecipeExplorerSKR from './RecipeExplorerSKR';
+import { useAuthSKR } from './AuthContextSKR';
+
+const Drawer = createDrawerNavigator();
+
 const CustomDrawerContent = (props) => {
   const { isAuthenticatedSKR, logoutSKR } = useAuthSKR();
 
-  // Function to handle logout action
   const handleLogoutSKR = () => {
     // Perform logout actions here (e.g., clear tokens, reset state)
     logoutSKR();
@@ -11,8 +25,7 @@ const CustomDrawerContent = (props) => {
 
   return (
     <DrawerContentScrollView {...props}>
-      <DrawerItemList {...props} /> {/* Render default drawer items */}
-      {/* Render logout button if user is authenticated */}
+      <DrawerItemList {...props} />
       {isAuthenticatedSKR && (
         <View style={{ marginHorizontal: 16, marginTop: 10 }}>
           <Button title="Logout" onPress={handleLogoutSKR} />
@@ -22,10 +35,10 @@ const CustomDrawerContent = (props) => {
   );
 };
 
+
 const DrawerNavigatorSKR = () => {
   const { isAuthenticatedSKR, logoutSKR } = useAuthSKR();
 
-  // Function to handle logout action
   const handleLogoutSKR = () => {
     logoutSKR();
   };
@@ -42,7 +55,6 @@ const DrawerNavigatorSKR = () => {
           ),
         }}
       />
-
       {/* Explore Recipe screen */}
       {isAuthenticatedSKR && (
         <Drawer.Screen
@@ -51,11 +63,10 @@ const DrawerNavigatorSKR = () => {
           options={{
             drawerIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="food-variant" size={size} color={color} />
-              ),
+            ),
           }}
         />
       )}
-
       {/* About Us screen */}
       <Drawer.Screen
         name="About Us"
@@ -67,7 +78,6 @@ const DrawerNavigatorSKR = () => {
         }}
       />
 
-      {/* Contact Us screen */}
       <Drawer.Screen
         name="Contact Us"
         component={ContactUsSKR}
@@ -77,7 +87,6 @@ const DrawerNavigatorSKR = () => {
           ),
         }}
       />
-
       {/* Login screen if user is not authenticated */}
       {!isAuthenticatedSKR &&
         <Drawer.Screen
@@ -89,7 +98,6 @@ const DrawerNavigatorSKR = () => {
             ),
           }}
         />}
-
       {/* Logout button if user is authenticated */}
       {isAuthenticatedSKR && (
         <Drawer.Screen
@@ -103,13 +111,13 @@ const DrawerNavigatorSKR = () => {
         />
       )}
 
-      {/* Recipe screen (example) */}
       <Drawer.Screen
         name="Recepie"
         component={RecipeExplorerSKR} // Replace with your desired component
         options={{ drawerLabel: () => null }} // Hide the label in the drawer
       />
     </Drawer.Navigator>
+
   );
 };
 
